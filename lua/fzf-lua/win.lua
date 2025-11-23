@@ -486,7 +486,7 @@ function FzfWin:normalize_winopts(fullscreen)
     -- use the calling window context for correct pos
     local winid = utils.CTX().winid
     local pos = vim.api.nvim_win_get_cursor(winid)
-    local screenpos = vim.fn.screenpos(winid, pos[1], pos[2])
+    local screenpos = vim.fn.screenpos(winid, pos[1] + 1, pos[2])
     winopts.row = math.floor((winopts.row or 0) + screenpos.row - 1)
     winopts.col = math.floor((winopts.col or 0) + screenpos.col - 1)
     winopts.relative = nil
